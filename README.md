@@ -1,3 +1,5 @@
+![AI-DRIVE Logo](./assets/AI_DRIVE.png)
+
 # Application Android de Surveillance de Conduite
 
 [![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://android.com)
@@ -21,7 +23,6 @@
 - [Dépannage](#-dépannage)
 - [Roadmap](#️-roadmap)
 - [Contribution](#-contribution)
-- [Licence](#-licence)
 - [Équipe](#-équipe)
 
 ## Description
@@ -85,12 +86,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 ## Captures d'écran
 
-
 **partie mobile**
-
-## Captures d'écran
-
-**pertie mobile**
 <div align="center">
 <table>
   <tr>
@@ -104,7 +100,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
     </td>
     <td align="center">
       <img src="./assets/se_connecter.jpeg" alt="Accéléromètre" width="200" height="400"/>
-      <br><strong>Se connectet</strong>
+      <br><strong>Se connecter</strong>
     </td>
   </tr>
   <tr>
