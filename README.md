@@ -13,7 +13,7 @@
 
 - [Description](#description)
 - [Fonctionnalités](#fonctionnalités)
-- [Technologies](#️technologies)
+- [Technologies](#technologies)
 - [Captures d'écran](#captures-décran)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
@@ -62,8 +62,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 - Historique et statistiques de conduite
 - Calibrage automatique des seuils
 
-## technologies
-
+## Technologies
 
 ### Frontend Mobile
 ```
@@ -207,14 +206,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 ## 🏗️ Architecture
 
-```
-🏛️ Architecture MVVM
-├── 📱 UI Layer (Activities/Fragments)
-├── 🔄 ViewModel Layer (Business Logic)
-├── 📊 Repository Layer (Data Management)
-├── 🌐 Network Layer (API Services)
-└── 💾 Local Storage (SharedPreferences/Room)
-```
+![architecture Logo](./assets/architecture.png)
 
 
 
