@@ -85,9 +85,47 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 ## Captures d'écran
 
-```
-[Écran de connexion] [Dashboard principal] [Alertes temps réel] [Statistiques]
-```
+
+**partie mobile**
+
+## Captures d'écran
+
+**pertie mobile**
+<div align="center">
+<table>
+  <tr>
+    <td align="center">
+      <img src="./assets/welcome_page.jpeg" alt="Page d'accueil" width="200" height="400"/>
+      <br><strong>Page d'Accueil</strong>
+    </td>
+    <td align="center">
+      <img src="./assets/creation_de_compte.jpeg" alt="Création de compte" width="200" height="400"/>
+      <br><strong>Inscription</strong>
+    </td>
+    <td align="center">
+      <img src="./assets/se_connecter.jpeg" alt="Accéléromètre" width="200" height="400"/>
+      <br><strong>Se connectet</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./assets/gps.jpeg" alt="GPS" width="200" height="400"/>
+      <br><strong>GPS</strong>
+    </td>
+    <td align="center">
+      <img src="./assets/gyroscope.jpeg" alt="Gyroscope" width="200" height="400"/>
+      <br><strong>Gyroscope</strong>
+    </td>
+    <td align="center">
+      <!-- Espace pour future capture -->
+      <img src="./assets/accelerometre.jpeg" alt="À venir" width="200" height="400"/>
+      <br><strong>Accéléromètre</strong>
+    </td>
+  </tr>
+</table>
+</div>
+
+
 
 ## Installation
 
