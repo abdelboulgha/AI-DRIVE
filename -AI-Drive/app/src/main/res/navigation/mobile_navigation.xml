@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_accelerometre">
+
+    <fragment
+        android:id="@+id/nav_accelerometre"
+        android:name="com.example.ai_drive.ui.Accelerometre.AccelerometreFragment"
+        android:label="Accéléromètre"
+        tools:layout="@layout/fragment_accelerometre" />
+
+    <fragment
+        android:id="@+id/nav_gps"
+        android:name="com.example.ai_drive.ui.GPS.GPSFragment"
+        android:label="GPS"
+        tools:layout="@layout/fragment_g_p_s" />
+
+    <fragment
+        android:id="@+id/nav_gyroscope"
+        android:name="com.example.ai_drive.ui.Gyroscope.GyroscopeFragment"
+        android:label="Gyroscope"
+        tools:layout="@layout/fragment_gyroscope" />
+</navigation>
