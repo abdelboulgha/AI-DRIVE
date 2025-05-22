@@ -11,9 +11,9 @@
 
 ## Table des Matières
 
-- [Aperçu](#-aperçu)
-- [Fonctionnalités](#-fonctionnalités)
-- [Technologies](#️-technologies)
+- [Aperçu](#-Description)
+- [Fonctionnalités](#-Fonctionnalités)
+- [Technologies](#️-Technologies)
 - [Captures d'écran](#-captures-décran)
 - [Installation](#-installation)
 - [Utilisation](#-utilisation)
