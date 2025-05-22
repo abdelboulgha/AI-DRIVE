@@ -11,16 +11,14 @@
 
 ## Table des Matières
 
-- [Aperçu](#-Description)
-- [Fonctionnalités](#-Fonctionnalités)
-- [Technologies](#️-Technologies)
-- [Captures d'écran](#-captures-décran)
-- [Installation](#-installation)
-- [Utilisation](#-utilisation)
+- [Description](#description)
+- [Fonctionnalités](#fonctionnalités)
+- [Technologies](#️technologies)
+- [Captures d'écran](#captures-décran)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
 - [Architecture](#️-architecture)
-- [Sécurité](#-sécurité)
-- [Tests](#-tests)
-- [Dépannage](#-dépannage)
+- [Sécurité](#sécurité)
 - [Roadmap](#️-roadmap)
 - [Contribution](#-contribution)
 - [Équipe](#-équipe)
@@ -64,7 +62,8 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 - Historique et statistiques de conduite
 - Calibrage automatique des seuils
 
-## Technologies
+## technologies
+
 
 ### Frontend Mobile
 ```
@@ -173,8 +172,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
    ```
 
 
-
-##  Utilisation
+## Utilisation
 
 ###  Premier lancement
 
@@ -220,7 +218,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 
 
-##  Sécurité
+## Sécurité
 
 ###  Authentification
 - **JWT Tokens** : Expiration automatique (24h)
