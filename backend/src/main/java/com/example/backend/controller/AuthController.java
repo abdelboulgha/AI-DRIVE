@@ -72,11 +72,8 @@ public class AuthController {
             throw new RuntimeException("Error retrieving users: " + e.getMessage());
         }
     }
-
-    //yarbiii
-
     @DeleteMapping("/users/delete-unsecured/{id}")
-    @Transactional  // <-- Ajoutez cette annotation !
+    @Transactional
     public ResponseEntity<?> deleteUserUnsecured(@PathVariable Long id) {
         try {
             // Vérifier si l'utilisateur existe

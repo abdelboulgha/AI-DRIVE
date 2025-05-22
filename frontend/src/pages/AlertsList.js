@@ -249,11 +249,6 @@ const AlertsList = () => {
         params.status = tabStatusFilters[tabValue];
       }
       
-      // Appliquer les filtres additionnels
-      if (filters.severity) params.severity = filters.severity;
-      if (filters.type) params.type = filters.type;
-      if (filters.status && !params.status) params.status = filters.status;
-      
       // Déterminer la méthode à utiliser en fonction des paramètres de route
       let response;
       if (userId) {
@@ -819,16 +814,6 @@ const AlertsList = () => {
               Rechercher
             </Button>
           </Box>
-          
-          <Button
-            startIcon={<FilterListIcon />}
-            variant="outlined"
-            size="small"
-            onClick={handleFilterClick}
-            color={Object.values(filters).some(v => v !== '') ? 'primary' : 'inherit'}
-          >
-            Filtres {Object.values(filters).some(v => v !== '') && '(actifs)'}
-          </Button>
         </Box>
         
         <Tabs

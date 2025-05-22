@@ -578,49 +578,6 @@ const UserVehicles = () => {
                 </Box>
               </Paper>
             </Grid>
-            
-            <Grid item xs={12} md={4}>
-              <Paper sx={{ p: 3, height: '100%' }}>
-                <Typography variant="h6" gutterBottom sx={{ pb: 2, borderBottom: '1px solid #eee', display: 'flex', alignItems: 'center' }}>
-                  <PersonIcon sx={{ mr: 1 }} />
-                  Informations utilisateur
-                </Typography>
-                
-                <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
-                  <Avatar 
-                    sx={{ 
-                      width: 60, 
-                      height: 60, 
-                      mr: 2,
-                      bgcolor: 'primary.main'
-                    }}
-                  >
-                    {user?.username?.charAt(0).toUpperCase() || 'U'}
-                  </Avatar>
-                  
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 'medium' }}>
-                      {user?.username || `Utilisateur #${userId}`}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {user?.email || 'Email non disponible'}
-                    </Typography>
-                  </Box>
-                </Box>
-                
-                <Divider sx={{ my: 2 }} />
-                
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  startIcon={<PersonIcon />}
-                  component={Link}
-                  to={`/users/${userId}`}
-                >
-                  Voir le profil complet
-                </Button>
-              </Paper>
-            </Grid>
           </Grid>
           
           {/* Liste des véhicules récents */}
@@ -760,22 +717,6 @@ const UserVehicles = () => {
                           Données
                         </Button>
                         
-                        <Box>
-                          <IconButton 
-                            color="primary" 
-                            onClick={() => handleEditVehicle(vehicle.id)}
-                            sx={{ mr: 1 }}
-                          >
-                            <EditIcon />
-                          </IconButton>
-                          
-                          <IconButton 
-                            color="error" 
-                            onClick={() => handleDeleteClick(vehicle)}
-                          >
-                            <DeleteIcon />
-                          </IconButton>
-                        </Box>
                       </Box>
                     </Paper>
                   </Grid>
@@ -806,16 +747,6 @@ const UserVehicles = () => {
                   ),
                 }}
               />
-              
-              <Button
-                variant="contained"
-                color="primary"
-                startIcon={<AddIcon />}
-                onClick={handleAddVehicle}
-                sx={{ ml: 2, whiteSpace: 'nowrap' }}
-              >
-                Ajouter
-              </Button>
             </Box>
           </Paper>
           

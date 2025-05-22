@@ -403,16 +403,6 @@ const CarDetails = () => {
           
           <Button
             variant="contained"
-            color="primary"
-            startIcon={<EditIcon />}
-            onClick={() => setEditDialogOpen(true)}
-            sx={{ mr: 1 }}
-          >
-            Modifier
-          </Button>
-          
-          <Button
-            variant="contained"
             color="error"
             startIcon={<DeleteIcon />}
             onClick={() => setDeleteDialogOpen(true)}

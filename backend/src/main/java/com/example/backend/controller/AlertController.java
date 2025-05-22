@@ -48,12 +48,8 @@ public class AlertController {
         responseDTO.setTimestamp(alert.getTimestamp());
         responseDTO.setNotes(alert.getNotes());
         responseDTO.setData(alert.getData());
-
-        // Ajouter l'ID du véhicule directement dans la réponse
         if (alert.getVehicle() != null) {
             responseDTO.setVehicleId(alert.getVehicle().getId());
-
-            // Vous pouvez aussi continuer à inclure les informations détaillées du véhicule
             AlertResponseDTO.VehicleDTO vehicleDTO = new AlertResponseDTO.VehicleDTO();
             vehicleDTO.setId(alert.getVehicle().getId());
             vehicleDTO.setBrand(alert.getVehicle().getBrand());
@@ -61,23 +57,18 @@ public class AlertController {
             vehicleDTO.setLicensePlate(alert.getVehicle().getLicensePlate());
             responseDTO.setCar(vehicleDTO);
         }
-
-        // Ajouter location si disponible
         if (alert.getLocation() != null) {
             AlertResponseDTO.LocationDTO locationDTO = new AlertResponseDTO.LocationDTO();
             locationDTO.setLatitude(alert.getLocation().getLatitude());
             locationDTO.setLongitude(alert.getLocation().getLongitude());
             responseDTO.setLocation(locationDTO);
         }
-
-        // Ajouter user si disponible
         if (alert.getUser() != null) {
             AlertResponseDTO.UserDTO userDTO = new AlertResponseDTO.UserDTO();
             userDTO.setId(alert.getUser().getId());
             userDTO.setUsername(alert.getUser().getUsername());
             responseDTO.setUser(userDTO);
         }
-
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
@@ -145,20 +136,15 @@ public class AlertController {
             @RequestParam(required = false) String sort) {
 
         Page<Alert> alertsPage = alertService.getAlertsByUserId(userId, page, limit, sort);
-
         List<Alert> alerts = alertsPage.getContent();
-
         Map<String, Object> response = new HashMap<>();
         response.put("data", alerts);
-
         Map<String, Object> meta = new HashMap<>();
         meta.put("page", page);
         meta.put("limit", limit);
         meta.put("total", alertsPage.getTotalElements());
         meta.put("pages", alertsPage.getTotalPages());
-
         response.put("meta", meta);
-
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

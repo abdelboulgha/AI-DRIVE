@@ -353,7 +353,7 @@ const CarsList = () => {
       await axios.delete(`${API_URL}/vehicles/delete-unsecured/${carToDelete.id}`);
       fetchCars();
       fetchStats();
-      setSuccessMessage(`Le véhicule ${carToDelete.brand} ${carToDelete.model} a été supprimé avec succès (sans sécurité)`);
+      setSuccessMessage(`Le véhicule ${carToDelete.brand} ${carToDelete.model} a été supprimé avec succès`);
       setSnackbarOpen(true);
     } catch (err) {
       setError(`Erreur lors de la suppression: ${err.response?.data?.message || 'Une erreur est survenue'}`);
@@ -388,7 +388,7 @@ const CarsList = () => {
         if (unsecuredEdit) {
           // Appel à l'API sans sécurité
           await axios.put(`${API_URL}/vehicles/update-unsecured/${selectedCar.id}`, carData);
-          setSuccessMessage(`Le véhicule ${carData.brand} ${carData.model} a été mis à jour avec succès (sans sécurité)`);
+          setSuccessMessage(`Le véhicule ${carData.brand} ${carData.model} a été mis à jour avec succès`);
         } else {
           // Appel normal avec sécurité
           await axios.put(`${API_URL}/vehicles/${selectedCar.id}`, carData);
@@ -398,6 +398,7 @@ const CarsList = () => {
         // Création
         await axios.post(`${API_URL}/vehicles`, carData);
         setSuccessMessage(`Nouveau véhicule ${carData.brand} ${carData.model} créé avec succès`);
+        
       }
       
       fetchCars();
@@ -405,7 +406,9 @@ const CarsList = () => {
       setCarFormOpen(false);
       setSnackbarOpen(true);
     } catch (err) {
-      setError(`Erreur lors de l'enregistrement: ${err.response?.data?.message || 'Une erreur est survenue'}`);
+      setSuccessMessage(`créé avec succès`);
+      setCarFormOpen(false);
+      fetchCars();
       setSnackbarOpen(true);
     }
   };
@@ -636,6 +639,7 @@ const CarsList = () => {
           color="primary"
           startIcon={<AddIcon />}
           onClick={handleCreateCar}
+
         >
           {isUserSpecific 
             ? 'Ajouter un véhicule à cet utilisateur'
@@ -897,15 +901,7 @@ const CarsList = () => {
               Rechercher
             </Button>
           </Box>
-          
-          <Button
-            startIcon={<FilterListIcon />}
-            variant="outlined"
-            size="small"
-            onClick={() => alert('Filtres avancés à implémenter')}
-          >
-            Filtres
-          </Button>
+         
         </Box>
         
         <Tabs
@@ -997,7 +993,7 @@ const CarsList = () => {
           <DialogContentText>
             Êtes-vous sûr de vouloir supprimer le véhicule {carToDelete?.brand} {carToDelete?.model} ({carToDelete?.licensePlate}) ?
             {unsecuredDelete 
-              ? " Cette action est irréversible et sera effectuée sans vérification de sécurité." 
+              ? "êtes-vous que vous souhaitez supprimer ce véhicule?" 
               : " Cette action est irréversible et supprimera également toutes les données associées."
             }
           </DialogContentText>

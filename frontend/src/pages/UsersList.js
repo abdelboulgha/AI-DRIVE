@@ -348,15 +348,6 @@ const UsersList = () => {
               Rechercher
             </Button>
           </Box>
-          
-          <Button
-            startIcon={<FilterListIcon />}
-            variant="outlined"
-            size="small"
-            onClick={() => alert('Filtres avancés à implémenter')}
-          >
-            Filtres
-          </Button>
         </Box>
         
         <Tabs
