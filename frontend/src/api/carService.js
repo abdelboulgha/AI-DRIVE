@@ -1,6 +1,5 @@
 import api from './api';
 
-// Données mockées pour simuler les voitures
 const mockCars = [
   {
     id: 1,
@@ -22,270 +21,6 @@ const mockCars = [
       id: 1,
       firstName: 'Admin',
       lastName: 'Système'
-    }
-  },
-  {
-    id: 2,
-    brand: 'Peugeot',
-    model: '308',
-    year: 2021,
-    licensePlate: '789012-B-2',
-    color: 'Noir',
-    userId: 1,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-16T17:30:00Z',
-    fuelType: 'Diesel',
-    mileage: 15800,
-    deviceId: 'D2002',
-    vin: 'VF38CAHNC8L123456',
-    safetyScore: 92,
-    alertsCount: 0,
-    owner: {
-      id: 1,
-      firstName: 'Admin',
-      lastName: 'Système'
-    }
-  },
-  {
-    id: 3,
-    brand: 'Dacia',
-    model: 'Duster',
-    year: 2019,
-    licensePlate: '345678-C-3',
-    color: 'Blanc',
-    userId: 1,
-    status: 'INACTIVE',
-    lastActivity: '2025-05-10T12:45:00Z',
-    fuelType: 'Essence',
-    mileage: 42000,
-    deviceId: 'D2003',
-    vin: 'UU1HSDC5G65123456',
-    safetyScore: 65,
-    alertsCount: 5,
-    owner: {
-      id: 1,
-      firstName: 'Admin',
-      lastName: 'Système'
-    }
-  },
-  {
-    id: 4,
-    brand: 'Toyota',
-    model: 'Corolla',
-    year: 2022,
-    licensePlate: '901234-D-4',
-    color: 'Gris',
-    userId: 2,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-17T09:20:00Z',
-    fuelType: 'Hybride',
-    mileage: 12300,
-    deviceId: 'D2004',
-    vin: 'SB1BR56L50F123456',
-    safetyScore: 95,
-    alertsCount: 0,
-    owner: {
-      id: 2,
-      firstName: 'Mohamed',
-      lastName: 'Alami'
-    }
-  },
-  {
-    id: 5,
-    brand: 'Volkswagen',
-    model: 'Golf',
-    year: 2021,
-    licensePlate: '567890-E-5',
-    color: 'Bleu',
-    userId: 2,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-16T14:10:00Z',
-    fuelType: 'Diesel',
-    mileage: 22000,
-    deviceId: 'D2005',
-    vin: 'WVWZZZ1KZ5W123456',
-    safetyScore: 88,
-    alertsCount: 1,
-    owner: {
-      id: 2,
-      firstName: 'Mohamed',
-      lastName: 'Alami'
-    }
-  },
-  {
-    id: 6,
-    brand: 'Fiat',
-    model: '500',
-    year: 2020,
-    licensePlate: '678901-F-6',
-    color: 'Jaune',
-    userId: 3,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-15T11:30:00Z',
-    fuelType: 'Essence',
-    mileage: 18500,
-    deviceId: 'D2006',
-    vin: 'ZFA31200000123456',
-    safetyScore: 82,
-    alertsCount: 3,
-    owner: {
-      id: 3,
-      firstName: 'Fatima',
-      lastName: 'Benali'
-    }
-  },
-  {
-    id: 7,
-    brand: 'Mercedes',
-    model: 'Classe C',
-    year: 2022,
-    licensePlate: '123789-G-7',
-    color: 'Noir',
-    userId: 5,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-17T10:45:00Z',
-    fuelType: 'Diesel',
-    mileage: 9800,
-    deviceId: 'D2007',
-    vin: 'WDD2050071R123456',
-    safetyScore: 91,
-    alertsCount: 0,
-    owner: {
-      id: 5,
-      firstName: 'Yasmine',
-      lastName: 'Tazi'
-    }
-  },
-  {
-    id: 8,
-    brand: 'Audi',
-    model: 'A3',
-    year: 2021,
-    licensePlate: '456012-H-8',
-    color: 'Gris',
-    userId: 5,
-    status: 'INACTIVE',
-    lastActivity: '2025-04-30T16:20:00Z',
-    fuelType: 'Essence',
-    mileage: 16700,
-    deviceId: 'D2008',
-    vin: 'WAUZZZ8P5AA123456',
-    safetyScore: 79,
-    alertsCount: 4,
-    owner: {
-      id: 5,
-      firstName: 'Yasmine',
-      lastName: 'Tazi'
-    }
-  },
-  {
-    id: 9,
-    brand: 'Ford',
-    model: 'Focus',
-    year: 2019,
-    licensePlate: '789345-I-9',
-    color: 'Rouge',
-    userId: 6,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-16T18:05:00Z',
-    fuelType: 'Diesel',
-    mileage: 35600,
-    deviceId: 'D2009',
-    vin: 'WF05XXGCC5FR123456',
-    safetyScore: 76,
-    alertsCount: 2,
-    owner: {
-      id: 6,
-      firstName: 'Rachid',
-      lastName: 'Mansouri'
-    }
-  },
-  {
-    id: 10,
-    brand: 'Hyundai',
-    model: 'Tucson',
-    year: 2021,
-    licensePlate: '012678-J-10',
-    color: 'Blanc',
-    userId: 6,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-17T07:30:00Z',
-    fuelType: 'Essence',
-    mileage: 14300,
-    deviceId: 'D2010',
-    vin: 'TMAJ381AAFJ123456',
-    safetyScore: 90,
-    alertsCount: 1,
-    owner: {
-      id: 6,
-      firstName: 'Rachid',
-      lastName: 'Mansouri'
-    }
-  },
-  {
-    id: 11,
-    brand: 'Kia',
-    model: 'Sportage',
-    year: 2020,
-    licensePlate: '345901-K-11',
-    color: 'Vert',
-    userId: 6,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-15T09:15:00Z',
-    fuelType: 'Diesel',
-    mileage: 27400,
-    deviceId: 'D2011',
-    vin: 'U5YPC813DHL123456',
-    safetyScore: 83,
-    alertsCount: 2,
-    owner: {
-      id: 6,
-      firstName: 'Rachid',
-      lastName: 'Mansouri'
-    }
-  },
-  {
-    id: 12,
-    brand: 'Skoda',
-    model: 'Octavia',
-    year: 2022,
-    licensePlate: '678234-L-12',
-    color: 'Gris',
-    userId: 6,
-    status: 'ACTIVE',
-    lastActivity: '2025-05-16T15:40:00Z',
-    fuelType: 'Diesel',
-    mileage: 8900,
-    deviceId: 'D2012',
-    vin: 'TMBEG7NE7E0123456',
-    safetyScore: 94,
-    alertsCount: 0,
-    owner: {
-      id: 6,
-      firstName: 'Rachid',
-      lastName: 'Mansouri'
-    }
-  },
-  {
-    id: 13,
-    brand: 'Citroën',
-    model: 'C3',
-    year: 2020,
-    licensePlate: '901567-M-13',
-    color: 'Bleu',
-    userId: 6,
-    status: 'INACTIVE',
-    lastActivity: '2025-05-01T13:25:00Z',
-    fuelType: 'Essence',
-    mileage: 19800,
-    deviceId: 'D2013',
-    vin: 'VF7SC5FS9EW123456',
-    safetyScore: 81,
-    alertsCount: 3,
-    owner: {
-      id: 6,
-      firstName: 'Rachid',
-      lastName: 'Mansouri'
     }
   }
 ];
@@ -361,8 +96,6 @@ const CarService = {
         }
       };
       
-      // Dans une implémentation réelle:
-      // return await api.get('/cars', { params });
     } catch (error) {
       throw error;
     }
@@ -381,8 +114,6 @@ const CarService = {
       
       return { data: car };
       
-      // Dans une implémentation réelle:
-      // return await api.get(`/cars/${id}`);
     } catch (error) {
       throw error;
     }
@@ -432,8 +163,6 @@ const CarService = {
         }
       };
       
-      // Dans une implémentation réelle:
-      // return await api.get(`/users/${userId}/cars`, { params });
     } catch (error) {
       throw error;
     }
@@ -444,7 +173,7 @@ const CarService = {
       // Simuler un délai réseau
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Créer une nouvelle voiture mockée
+      // Créer une nouvelle voiture 
       const newCar = {
         id: Math.max(...mockCars.map(c => c.id)) + 1,
         ...carData,
@@ -454,8 +183,6 @@ const CarService = {
         safetyScore: 100
       };
       
-      // En réalité, nous ne modifions pas mockCars car c'est juste une simulation
-      // mockCars.push(newCar);
       
       return { 
         success: true, 
@@ -463,8 +190,6 @@ const CarService = {
         message: 'Véhicule créé avec succès'
       };
       
-      // Dans une implémentation réelle:
-      // return await api.post('/cars', carData);
     } catch (error) {
       throw error;
     }
@@ -494,8 +219,6 @@ const CarService = {
         message: 'Véhicule mis à jour avec succès'
       };
       
-      // Dans une implémentation réelle:
-      // return await api.put(`/cars/${id}`, carData);
     } catch (error) {
       throw error;
     }
@@ -517,8 +240,6 @@ const CarService = {
         message: 'Véhicule supprimé avec succès'
       };
       
-      // Dans une implémentation réelle:
-      // return await api.delete(`/cars/${id}`);
     } catch (error) {
       throw error;
     }
@@ -610,8 +331,6 @@ const CarService = {
         }
       };
       
-      // Dans une implémentation réelle:
-      // return await api.get(userId ? `/users/${userId}/car-stats` : '/cars/stats');
     } catch (error) {
       throw error;
     }

@@ -62,10 +62,7 @@ public class AlertService {
             alert.setVehicle(vehicle);
             alert.setNotes(requestDTO.getNotes());
 
-            // CORRECTION : Transformer la chaîne en JSON valide si nécessaire
-            // Dans la méthode createAlert de AlertService.java
             if (requestDTO.getData() != null) {
-                // Le UserType s'occupera de la validation et de la conversion
                 alert.setData(requestDTO.getData());
             }
 
@@ -196,12 +193,10 @@ public class AlertService {
             User user = userRepository.findById(userId)
                     .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
             total = alertRepository.countByUser(user);
-            // Compléter avec les autres stats par utilisateur
         } else if (vehicleId != null) {
             Vehicle vehicle = vehicleRepository.findById(vehicleId)
                     .orElseThrow(() -> new RuntimeException("Véhicule non trouvé"));
             total = alertRepository.countByVehicle(vehicle);
-            // Compléter avec les autres stats par véhicule
         } else {
             total = alertRepository.count();
 

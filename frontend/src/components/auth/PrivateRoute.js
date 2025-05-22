@@ -6,8 +6,6 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
   const isAuthenticated = authService.isAuthenticated();
   
-  // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-  // en conservant l'URL originale dans l'état pour une redirection après connexion
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location.pathname }} />;
   }

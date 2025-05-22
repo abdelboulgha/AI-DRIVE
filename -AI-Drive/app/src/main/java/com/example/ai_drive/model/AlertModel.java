@@ -143,11 +143,6 @@ public class AlertModel {
         return location;
     }
 
-    //public void setLocation(LocationModel location) {
-        //this.location = location;
-    //}
-
-    // Dans la méthode setLocation, ajoutez la synchronisation
     public void setLocation(LocationModel location) {
         this.location = location;
         if (location != null) {

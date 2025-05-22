@@ -63,7 +63,6 @@ public class VehicleService {
     public Vehicle updateVehicle(Long id, Vehicle vehicleDetails) {
         Vehicle vehicle = getVehicleById(id);
 
-        // Attributs existants
         vehicle.setBrand(vehicleDetails.getBrand());
         vehicle.setModel(vehicleDetails.getModel());
         vehicle.setColor(vehicleDetails.getColor());
@@ -75,7 +74,6 @@ public class VehicleService {
             vehicle.setLicensePlate(vehicleDetails.getLicensePlate());
         }
 
-        // Nouveaux attributs
         if (vehicleDetails.getYear() != null) {
             vehicle.setYear(vehicleDetails.getYear());
         }
@@ -92,7 +90,6 @@ public class VehicleService {
             vehicle.setStatus(vehicleDetails.getStatus());
         }
 
-        // Mettre à jour l'activité
         vehicle.updateActivity();
 
         return vehicleRepository.save(vehicle);
@@ -128,8 +125,6 @@ public class VehicleService {
         vehicle.updateActivity();
         userRepository.save(user);
     }
-
-    // Nouvelles méthodes
 
     public List<Vehicle> getVehiclesByStatus(String status) {
         return vehicleRepository.findByStatus(status);
@@ -229,8 +224,6 @@ public class VehicleService {
     }
 
     public Map<String, Object> getVehicleStatsByUserId(Long userId) {
-        // Logique similaire à getVehicleStats mais filtrée par userId
-        // Implémentation à adapter selon vos besoins
 
         Map<String, Object> stats = new HashMap<>();
         List<Vehicle> userVehicles = vehicleRepository.findByUsersId(userId);
@@ -241,9 +234,6 @@ public class VehicleService {
         stats.put("totalCars", totalCount);
         stats.put("activeCars", activeCount);
         stats.put("inactiveCars", totalCount - activeCount);
-
-        // Autres statistiques...
-
         return stats;
     }
 }

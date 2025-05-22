@@ -182,7 +182,7 @@ const UsersList = () => {
       
       // Choisir l'endpoint approprié selon le mode de suppression
       const endpoint = unsecuredDelete 
-        ? `http://localhost:8080/api/auth/users/delete-unsecured/${userToDelete.id}`
+        ? `http://localhost:8080/api/auth/users/delete/${userToDelete.id}`
         : `http://localhost:8080/api/auth/users/${userToDelete.id}`;
       // Appel à l'API pour supprimer l'utilisateur
       await axios.delete(endpoint);
@@ -192,13 +192,14 @@ const UsersList = () => {
       
       // Afficher un message de succès
       const successText = unsecuredDelete 
-        ? `L'utilisateur ${userToDelete.username} a été supprimé avec succès (sans sécurité)`
+        ? `L'utilisateur ${userToDelete.username} a été supprimé avec succès`
         : `L'utilisateur ${userToDelete.username} a été supprimé avec succès`;
       
       setSuccessMessage(successText);
       setSnackbarOpen(true);
     } catch (err) {
       console.error('Erreur lors de la suppression:', err);
+      fetchUsers();
       
       // Afficher un message d'erreur
       let errorMessage = 'Une erreur est survenue lors de la suppression';
@@ -517,7 +518,7 @@ const UsersList = () => {
           <DialogContentText>
             Êtes-vous sûr de vouloir supprimer l'utilisateur {userToDelete?.username} ?
             {unsecuredDelete 
-              ? " Cette action est irréversible et sera effectuée sans vérification de sécurité." 
+              ? " " 
               : " Cette action est irréversible et supprimera également toutes les données associées."
             }
           </DialogContentText>
@@ -531,7 +532,7 @@ const UsersList = () => {
             color="error" 
             variant="contained"
           >
-            {unsecuredDelete ? "Supprimer (sans sécurité)" : "Supprimer"}
+            {unsecuredDelete ? "Supprimer" : "Supprimer"}
           </Button>
         </DialogActions>
       </Dialog>

@@ -293,8 +293,6 @@ const AlertsList = () => {
         const response = await AlertService.getAlertStats(params);
         setAlertStats(response.data);
       } catch (error) {
-        // Si l'endpoint statistiques n'est pas disponible, 
-        // on utilise les statistiques calculées localement
         console.warn("L'endpoint des statistiques n'est pas disponible. Utilisation des statistiques calculées localement.");
       }
     } catch (err) {
@@ -304,8 +302,6 @@ const AlertsList = () => {
   
   useEffect(() => {
     fetchAlerts();
-    // Essayer de récupérer les statistiques du backend, mais ne pas bloquer
-    // si cela échoue
     fetchStats();
   }, [userId, carId, page, rowsPerPage, tabValue, orderBy, order, filters]);
   
@@ -544,8 +540,7 @@ const AlertsList = () => {
     
     const statusData = [
       { name: 'Nouvelles', value: statusStats.new },
-      { name: 'Traitées', value: statusStats.acknowledged },
-      { name: 'Résolues', value: statusStats.resolved }
+      { name: 'Traitées', value: statusStats.acknowledged }
     ];
     
     return (

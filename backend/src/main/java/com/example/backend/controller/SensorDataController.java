@@ -64,7 +64,6 @@ public class SensorDataController {
         return new ResponseEntity<>(savedData, HttpStatus.CREATED);
     }
 
-    // Ajoutez cette méthode dans SensorDataController.java
     @GetMapping("/accelerometer/vehicle/{vehicleId}")
     public ResponseEntity<List<AccelerometerData>> getAccelerometerDataByVehicleId(@PathVariable Long vehicleId) {
         try {
@@ -106,23 +105,6 @@ public class SensorDataController {
         }
     }
 
-    @GetMapping("/gps")
-    public ResponseEntity<List<GPSData>> getAllGPSData(
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        List<GPSData> data = sensorDataService.getGPSDataByUser(user);
-        return new ResponseEntity<>(data, HttpStatus.OK);
-    }
-
-    @GetMapping("/gps/{deviceId}")
-    public ResponseEntity<List<GPSData>> getGPSDataByDeviceId(
-            @PathVariable String deviceId,
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        List<GPSData> data = sensorDataService.getGPSDataByUserAndDeviceId(user, deviceId);
-        return new ResponseEntity<>(data, HttpStatus.OK);
-    }
-
 
     @PostMapping("/gyroscope")
     public ResponseEntity<GyroscopeData> saveGyroscopeData(
@@ -133,20 +115,4 @@ public class SensorDataController {
         return new ResponseEntity<>(savedData, HttpStatus.CREATED);
     }
 
-    @GetMapping("/gyroscope")
-    public ResponseEntity<List<GyroscopeData>> getAllGyroscopeData(
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        List<GyroscopeData> data = sensorDataService.getGyroscopeDataByUser(user);
-        return new ResponseEntity<>(data, HttpStatus.OK);
-    }
-
-    @GetMapping("/gyroscope/{deviceId}")
-    public ResponseEntity<List<GyroscopeData>> getGyroscopeDataByDeviceId(
-            @PathVariable String deviceId,
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        List<GyroscopeData> data = sensorDataService.getGyroscopeDataByUserAndDeviceId(user, deviceId);
-        return new ResponseEntity<>(data, HttpStatus.OK);
-    }
 }

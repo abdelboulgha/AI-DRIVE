@@ -80,5 +80,4 @@ public class DashboardDataDTO {
         this.deviceActivities = deviceActivities;
     }
 
-// Getters and setters
 }

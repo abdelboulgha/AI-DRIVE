@@ -37,7 +37,6 @@ public class SensorDataService {
                     .orElseThrow(() -> new RuntimeException("Vehicle not found"));
             data.setVehicle(vehicle);
         } else if (user.getVehicles() != null && !user.getVehicles().isEmpty()) {
-            // Par défaut, on assigne le premier véhicule de l'utilisateur
             data.setVehicle(user.getVehicles().get(0));
         }
 
@@ -49,7 +48,6 @@ public class SensorDataService {
         data.setUser(user);
 
         if (user.getVehicles() != null && !user.getVehicles().isEmpty()) {
-            // Par défaut, on assigne le premier véhicule de l'utilisateur
             data.setVehicle(user.getVehicles().get(0));
         }
 
@@ -88,7 +86,6 @@ public class SensorDataService {
                     .orElseThrow(() -> new RuntimeException("Vehicle not found"));
             data.setVehicle(vehicle);
         } else if (user.getVehicles() != null && !user.getVehicles().isEmpty()) {
-            // Par défaut, on assigne le premier véhicule de l'utilisateur
             data.setVehicle(user.getVehicles().get(0));
         }
 
@@ -102,7 +99,6 @@ public class SensorDataService {
         data.setUser(user);
 
         if (user.getVehicles() != null && !user.getVehicles().isEmpty()) {
-            // Par défaut, on assigne le premier véhicule de l'utilisateur
             data.setVehicle(user.getVehicles().get(0));
         }
 
@@ -141,7 +137,6 @@ public class SensorDataService {
                     .orElseThrow(() -> new RuntimeException("Vehicle not found"));
             data.setVehicle(vehicle);
         } else if (user.getVehicles() != null && !user.getVehicles().isEmpty()) {
-            // Par défaut, on assigne le premier véhicule de l'utilisateur
             data.setVehicle(user.getVehicles().get(0));
         }
 
@@ -155,7 +150,6 @@ public class SensorDataService {
         data.setUser(user);
 
         if (user.getVehicles() != null && !user.getVehicles().isEmpty()) {
-            // Par défaut, on assigne le premier véhicule de l'utilisateur
             data.setVehicle(user.getVehicles().get(0));
         }
 

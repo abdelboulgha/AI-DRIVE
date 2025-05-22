@@ -188,7 +188,7 @@ public class AccelerometreFragment extends Fragment implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Rien à faire ici pour cet exemple
+
     }
 
     private String determineOrientation(float x, float y, float z) {

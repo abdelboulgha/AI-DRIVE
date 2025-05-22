@@ -22,18 +22,13 @@ export const AuthProvider = ({ children }) => {
           const userId = authService.getCurrentUserId();
           
           if (userId) {
-            // Dans une implémentation réelle, on ferait un appel API pour
-            // récupérer les informations complètes de l'utilisateur
             setIsAuthenticated(true);
             
-            // Simuler un chargement de données utilisateur
-            // Dans une application réelle, appeler API pour obtenir les détails de l'utilisateur
             const userRole = authService.isAdmin() ? 'ADMIN' : 'USER';
             
             setCurrentUser({
               id: userId,
               role: userRole,
-              // D'autres propriétés seraient ajoutées ici dans une implémentation réelle
             });
           } else {
             setIsAuthenticated(false);

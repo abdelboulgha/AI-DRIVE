@@ -38,7 +38,6 @@ public class GPSFragment extends Fragment implements LocationListener {
     private SessionManager sessionManager;
 
     public GPSFragment() {
-        // Required empty public constructor
     }
 
     public static GPSFragment newInstance() {

@@ -45,17 +45,13 @@ public class WelcomeActivity extends AppCompatActivity {
         appNameTextView = findViewById(R.id.app_name_textview);
         sloganTextView = findViewById(R.id.slogan_textview);
 
-        // Configurer le ViewPager des fonctionnalités
         setupFeaturesPager();
-
-        // Animer les éléments de la page
         animateContent();
 
         // Configurer les écouteurs de clics
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Naviguer vers la page de connexion
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -65,7 +61,6 @@ public class WelcomeActivity extends AppCompatActivity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Naviguer vers la page d'inscription
                 Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -90,7 +85,7 @@ public class WelcomeActivity extends AppCompatActivity {
         ));
 
         features.add(new FeatureAdapter.FeatureItem(
-                R.drawable.ic_latitude,
+                R.drawable.ic_gps_location,
                 "Suivi GPS en temps réel",
                 "Visualisez votre trajet avec précision et obtenez des statistiques détaillées sur votre style de conduite."
         ));

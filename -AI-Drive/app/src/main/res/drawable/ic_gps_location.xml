@@ -8,45 +8,45 @@
     <!-- Cercle extérieur -->
     <path
         android:fillColor="@android:color/transparent"
-        android:strokeColor="@color/colorPrimary"
+        android:strokeColor="@color/black"
         android:strokeWidth="2"
         android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z" />
 
     <!-- Point central -->
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="@color/black"
         android:pathData="M12,8c-2.21,0 -4,1.79 -4,4s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4z" />
 
     <!-- Lignes directionnelles -->
     <!-- Nord -->
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="@color/black"
         android:pathData="M12,1 L12,5"
-        android:strokeColor="@color/colorPrimary"
+        android:strokeColor="@color/black"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 
     <!-- Sud -->
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="@color/black"
         android:pathData="M12,19 L12,23"
-        android:strokeColor="@color/colorPrimary"
+        android:strokeColor="@color/black"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 
     <!-- Est -->
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="@color/black"
         android:pathData="M23,12 L19,12"
-        android:strokeColor="@color/colorPrimary"
+        android:strokeColor="@color/black"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 
     <!-- Ouest -->
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="@color/black"
         android:pathData="M5,12 L1,12"
-        android:strokeColor="@color/colorPrimary"
+        android:strokeColor="@color/black"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 

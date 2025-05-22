@@ -21,21 +21,7 @@ const GyroscopeData = () => {
     // Utilisation des données simulées
     setGyroscopeData(mockData);
     setLoading(false);
-    
-    // Pour l'appel API réel, décommentez ceci:
-    /*
-    const fetchGyroscopeData = async () => {
-      try {
-        const response = await SensorDataService.getGyroscopeData();
-        setGyroscopeData(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setLoading(false);
-      }
-    };
-    fetchGyroscopeData();
-    */
+
   }, []);
 
   if (loading) {

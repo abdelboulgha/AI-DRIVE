@@ -12,15 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.ai_drive.R;
 import com.example.ai_drive.api.ApiClient;
 import com.example.ai_drive.api.ApiService;
 import com.example.ai_drive.model.GyroscopeDataModel;
 import com.example.ai_drive.utils.SessionManager;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,7 +35,6 @@ public class GyroscopeFragment extends Fragment implements SensorEventListener {
     private SessionManager sessionManager;
 
     public GyroscopeFragment() {
-        // Required empty public constructor
     }
 
     public static GyroscopeFragment newInstance() {

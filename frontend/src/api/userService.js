@@ -1,6 +1,5 @@
 import api from './api';
 
-// Données de test pour simuler les utilisateurs
 const mockUsers = [
   {
     id: 1,
@@ -14,71 +13,6 @@ const mockUsers = [
     createdAt: '2023-01-15T10:30:00Z',
     lastLogin: '2025-05-16T08:45:00Z',
     carsCount: 3
-  },
-  {
-    id: 2,
-    firstName: 'Mohamed',
-    lastName: 'Alami',
-    email: 'user@ai-drive.com',
-    phone: '+212 662 789012',
-    role: 'USER',
-    status: 'ACTIVE',
-    licenseNumber: 'B654321',
-    createdAt: '2023-02-20T14:15:00Z',
-    lastLogin: '2025-05-15T16:20:00Z',
-    carsCount: 2
-  },
-  {
-    id: 3,
-    firstName: 'Fatima',
-    lastName: 'Benali',
-    email: 'fatima@example.com',
-    phone: '+212 663 456789',
-    role: 'USER',
-    status: 'ACTIVE',
-    licenseNumber: 'C987654',
-    createdAt: '2023-03-10T09:45:00Z',
-    lastLogin: '2025-05-10T11:30:00Z',
-    carsCount: 1
-  },
-  {
-    id: 4,
-    firstName: 'Karim',
-    lastName: 'Idrissi',
-    email: 'karim@example.com',
-    phone: '+212 664 234567',
-    role: 'USER',
-    status: 'INACTIVE',
-    licenseNumber: 'D765432',
-    createdAt: '2023-04-05T16:20:00Z',
-    lastLogin: '2025-04-18T10:15:00Z',
-    carsCount: 0
-  },
-  {
-    id: 5,
-    firstName: 'Yasmine',
-    lastName: 'Tazi',
-    email: 'yasmine@example.com',
-    phone: '+212 665 345678',
-    role: 'USER',
-    status: 'ACTIVE',
-    licenseNumber: 'E543210',
-    createdAt: '2023-05-12T11:10:00Z',
-    lastLogin: '2025-05-14T15:45:00Z',
-    carsCount: 2
-  },
-  {
-    id: 6,
-    firstName: 'Rachid',
-    lastName: 'Mansouri',
-    email: 'rachid@example.com',
-    phone: '+212 666 456789',
-    role: 'MANAGER',
-    status: 'ACTIVE',
-    licenseNumber: 'F432109',
-    createdAt: '2023-06-08T13:25:00Z',
-    lastLogin: '2025-05-16T09:30:00Z',
-    carsCount: 5
   }
 ];
 
@@ -129,8 +63,6 @@ const UserService = {
         }
       };
       
-      // Dans une implémentation réelle:
-      // return await api.get('/users', { params });
     } catch (error) {
       throw error;
     }
@@ -149,8 +81,6 @@ const UserService = {
       
       return { data: user };
       
-      // Dans une implémentation réelle:
-      // return await api.get(`/users/${id}`);
     } catch (error) {
       throw error;
     }
@@ -171,8 +101,6 @@ const UserService = {
         status: 'ACTIVE'
       };
       
-      // En réalité, nous ne modifions pas mockUsers car c'est juste une simulation
-      // mockUsers.push(newUser);
       
       return { 
         success: true, 
@@ -180,8 +108,6 @@ const UserService = {
         message: 'Utilisateur créé avec succès'
       };
       
-      // Dans une implémentation réelle:
-      // return await api.post('/users', userData);
     } catch (error) {
       throw error;
     }
@@ -198,11 +124,6 @@ const UserService = {
         throw { response: { status: 404, data: { message: 'Utilisateur non trouvé' } } };
       }
       
-      // En réalité, nous ne modifions pas mockUsers car c'est juste une simulation
-      // const updatedUser = { ...mockUsers[userIndex], ...userData, updatedAt: new Date().toISOString() };
-      // mockUsers[userIndex] = updatedUser;
-      
-      // Simulation de l'utilisateur mis à jour
       const updatedUser = { 
         ...mockUsers[userIndex], 
         ...userData, 
@@ -215,8 +136,6 @@ const UserService = {
         message: 'Utilisateur mis à jour avec succès'
       };
       
-      // Dans une implémentation réelle:
-      // return await api.put(`/users/${id}`, userData);
     } catch (error) {
       throw error;
     }
@@ -233,16 +152,12 @@ const UserService = {
         throw { response: { status: 404, data: { message: 'Utilisateur non trouvé' } } };
       }
       
-      // En réalité, nous ne supprimons pas de mockUsers car c'est juste une simulation
-      // mockUsers.splice(userIndex, 1);
       
       return { 
         success: true,
         message: 'Utilisateur supprimé avec succès'
       };
       
-      // Dans une implémentation réelle:
-      // return await api.delete(`/users/${id}`);
     } catch (error) {
       throw error;
     }
@@ -271,7 +186,6 @@ const UserService = {
           regularUsers,
           usersWithCars: mockUsers.filter(user => user.carsCount > 0).length,
           usersWithoutCars: mockUsers.filter(user => user.carsCount === 0).length,
-          // Simuler une distribution des utilisateurs par mois d'inscription
           registrationsByMonth: [
             { month: 'Jan', count: 1 },
             { month: 'Feb', count: 1 },
@@ -289,8 +203,6 @@ const UserService = {
         }
       };
       
-      // Dans une implémentation réelle:
-      // return await api.get('/users/stats');
     } catch (error) {
       throw error;
     }

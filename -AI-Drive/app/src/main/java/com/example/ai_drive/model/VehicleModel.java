@@ -7,7 +7,6 @@ public class VehicleModel {
     private String model;
     private String color;
 
-    // Constructeur par défaut (requis pour Gson)
     public VehicleModel() {}
 
     // Getters et setters

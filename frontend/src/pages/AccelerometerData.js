@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Paper, Box, CircularProgress } from '@mui/material';
 import AccelerometerChart from '../components/charts/AccelerometerChart';
-// import SensorDataService from '../api/sensorDataService';
 
 // Données temporaires
 const mockData = Array.from({ length: 50 }, (_, i) => ({
@@ -22,20 +21,6 @@ const AccelerometerData = () => {
     setAccelerometerData(mockData);
     setLoading(false);
     
-    // Pour l'appel API réel, décommentez ceci:
-    /*
-    const fetchAccelerometerData = async () => {
-      try {
-        const response = await SensorDataService.getAccelerometerData();
-        setAccelerometerData(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setLoading(false);
-      }
-    };
-    fetchAccelerometerData();
-    */
   }, []);
 
   if (loading) {

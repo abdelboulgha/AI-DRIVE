@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Dans MainActivity.java, modifier onOptionsItemSelected:
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here

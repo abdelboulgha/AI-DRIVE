@@ -18,7 +18,6 @@ public interface GyroscopeRepository extends JpaRepository<GyroscopeData, Long> 
     List<GyroscopeData> findByUserAndDeviceId(User user, String deviceId);
     List<GyroscopeData> findByUserAndTimestampAfter(User user, LocalDateTime timestamp);
 
-    // Cette méthode est utilisée dans SensorDataService.getGyroscopeDataByVehicle
     List<GyroscopeData> findByVehicle(Vehicle vehicle);
 
     List<GyroscopeData> findByVehicleAndTimestampAfter(Vehicle vehicle, LocalDateTime timestamp);

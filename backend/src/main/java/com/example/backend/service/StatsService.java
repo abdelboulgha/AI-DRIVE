@@ -149,7 +149,6 @@ public class StatsService {
                                                              List<GyroscopeData> gyroscopeData) {
         List<DeviceActivityDTO> activities = new ArrayList<>();
 
-        // Ajouter les dernières activités GPS
         if (!gpsData.isEmpty()) {
             activities.addAll(gpsData.stream()
                     .limit(10)
@@ -164,8 +163,6 @@ public class StatsService {
                     })
                     .collect(Collectors.toList()));
         }
-
-        // Ajouter des activités pour d'autres capteurs de manière similaire
 
         return activities.stream()
                 .sorted((a1, a2) -> a2.getTimestamp().compareTo(a1.getTimestamp()))

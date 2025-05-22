@@ -22,7 +22,6 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final VehicleService vehicleService;
 
-    // Stockage simplifié des tokens (à remplacer par JWT en production)
     private final Map<String, Long> tokens = new HashMap<>();
 
     @Autowired
@@ -33,7 +32,6 @@ public class AuthService {
     }
 
     public AuthResponseDTO signup(SignupRequestDTO signupRequest) {
-        // Vérifier si l'utilisateur existe déjà
         if (userRepository.existsByUsername(signupRequest.getUsername())) {
             throw new RuntimeException("Username already exists");
         }
@@ -42,7 +40,6 @@ public class AuthService {
             throw new RuntimeException("Email already exists");
         }
 
-        // Créer un nouvel utilisateur
         User user = new User();
         user.setUsername(signupRequest.getUsername());
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
@@ -50,7 +47,6 @@ public class AuthService {
         user.setTelephone(signupRequest.getTelephone());
         user.setStatus("ACTIF");
 
-        // Assigner le véhicule si un ID est fourni
         if (signupRequest.getVehicleId() != null) {
             Vehicle vehicle = vehicleService.getVehicleById(signupRequest.getVehicleId());
             user.addVehicle(vehicle);
@@ -58,7 +54,6 @@ public class AuthService {
             throw new RuntimeException("Un véhicule doit être spécifié lors de l'inscription");
         }
 
-        // Sauvegarder l'utilisateur
         user = userRepository.save(user);
 
         // Générer un token
@@ -98,7 +93,6 @@ public class AuthService {
     }
 
     public User getUserByToken(String token) {
-        // Retirer le préfixe "Bearer " si présent
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
         }

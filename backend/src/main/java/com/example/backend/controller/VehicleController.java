@@ -27,14 +27,13 @@ public class VehicleController {
     public VehicleController(VehicleService vehicleService, AuthService authService, VehicleRepository vehicleRepository) {
         this.vehicleService = vehicleService;
         this.authService = authService;
-        this.vehicleRepository = vehicleRepository;  // Initialisation dans le constructeur
+        this.vehicleRepository = vehicleRepository;
     }
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Vehicle>> getVehiclesByUserId(@PathVariable Long userId) {
         List<Vehicle> vehicles = vehicleService.getVehiclesByUserId(userId);
         return new ResponseEntity<>(vehicles, HttpStatus.OK);
     }
-    // Méthodes existantes
     @GetMapping
     public ResponseEntity<List<Vehicle>> getAllVehicles() {
         List<Vehicle> vehicles = vehicleService.getAllVehicles();
@@ -47,26 +46,12 @@ public class VehicleController {
         return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Vehicle> createVehicle(
-            @RequestBody Vehicle vehicle,
-            @RequestHeader("Authorization") String token) {
-        // Vérifier l'authentification
-        authService.getUserByToken(token);
-
-        Vehicle savedVehicle = vehicleService.saveVehicle(vehicle);
-        return new ResponseEntity<>(savedVehicle, HttpStatus.CREATED);
-    }
-
     @PostMapping("/vehicles/create")
     public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle) {
         try {
-            // Vérification si un véhicule avec la même plaque existe déjà
             if (vehicleRepository.existsByLicensePlate(vehicle.getLicensePlate())) {
                 throw new RuntimeException("Un véhicule avec cette plaque d'immatriculation existe déjà");
             }
-
-            // Si les valeurs par défaut ne sont pas définies, les configurer
             if (vehicle.getStatus() == null) {
                 vehicle.setStatus("ACTIF");
             }
@@ -75,35 +60,11 @@ public class VehicleController {
                 vehicle.setLastActivity(LocalDateTime.now());
             }
 
-            // Enregistrer le véhicule
             Vehicle savedVehicle = vehicleRepository.save(vehicle);
             return new ResponseEntity<>(savedVehicle, HttpStatus.CREATED);
         } catch (Exception e) {
             throw new RuntimeException("Erreur lors de la création du véhicule: " + e.getMessage());
         }
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Vehicle> updateVehicle(
-            @PathVariable Long id,
-            @RequestBody Vehicle vehicleDetails,
-            @RequestHeader("Authorization") String token) {
-        // Vérifier l'authentification
-        authService.getUserByToken(token);
-
-        Vehicle updatedVehicle = vehicleService.updateVehicle(id, vehicleDetails);
-        return new ResponseEntity<>(updatedVehicle, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteVehicle(
-            @PathVariable Long id,
-            @RequestHeader("Authorization") String token) {
-        // Vérifier l'authentification
-        authService.getUserByToken(token);
-
-        vehicleService.deleteVehicle(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/user")
@@ -122,17 +83,6 @@ public class VehicleController {
         vehicleService.assignVehicleToUser(user.getId(), vehicleId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    @PostMapping("/{vehicleId}/remove")
-    public ResponseEntity<?> removeVehicleFromUser(
-            @PathVariable Long vehicleId,
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        vehicleService.removeVehicleFromUser(user.getId(), vehicleId);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    // Nouveaux endpoints
 
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Object>> getVehicleStats() {
@@ -155,8 +105,6 @@ public class VehicleController {
         return ResponseEntity.ok(vehicles);
     }
 
-
-
     @GetMapping("/fuel-type/{fuelType}")
     public ResponseEntity<List<Vehicle>> getVehiclesByFuelType(
             @PathVariable String fuelType) {
@@ -164,60 +112,7 @@ public class VehicleController {
         return ResponseEntity.ok(vehicles);
     }
 
-    @PatchMapping("/{id}/mileage")
-    public ResponseEntity<?> updateVehicleMileage(
-            @PathVariable Long id,
-            @RequestParam Long mileage,
-            @RequestHeader("Authorization") String token) {
-        // Vérifier l'authentification
-        authService.getUserByToken(token);
-
-        vehicleService.updateVehicleMileage(id, mileage);
-        return ResponseEntity.ok().build();
-    }
-
-    @PatchMapping("/{id}/status")
-    public ResponseEntity<?> updateVehicleStatus(
-            @PathVariable Long id,
-            @RequestParam String status,
-            @RequestHeader("Authorization") String token) {
-        // Vérifier l'authentification
-        authService.getUserByToken(token);
-
-        vehicleService.updateVehicleStatus(id, status);
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/constants")
-    public ResponseEntity<Map<String, Object>> getVehicleConstants() {
-        // Renvoyer les constantes statiques pour l'interface utilisateur
-        Map<String, Object> constants = Map.of(
-                "vehicleColors", List.of(
-                        Map.of("name", "Rouge", "hexCode", "#f44336"),
-                        Map.of("name", "Bleu", "hexCode", "#2196f3"),
-                        Map.of("name", "Vert", "hexCode", "#4caf50"),
-                        Map.of("name", "Jaune", "hexCode", "#ffeb3b"),
-                        Map.of("name", "Noir", "hexCode", "#212121"),
-                        Map.of("name", "Blanc", "hexCode", "#f5f5f5"),
-                        Map.of("name", "Gris", "hexCode", "#9e9e9e")
-                ),
-                "fuelTypes", List.of(
-                        Map.of("id", 1, "name", "Essence", "color", "#f44336"),
-                        Map.of("id", 2, "name", "Diesel", "color", "#ff9800"),
-                        Map.of("id", 3, "name", "Hybride", "color", "#4caf50"),
-                        Map.of("id", 4, "name", "Électrique", "color", "#2196f3")
-                ),
-                "statusOptions", List.of(
-                        Map.of("value", "ACTIF", "label", "Actif", "color", "success"),
-                        Map.of("value", "INACTIF", "label", "Inactif", "color", "default")
-                )
-        );
-
-        return ResponseEntity.ok(constants);
-    }
-
-//yahafid ya star
-    @DeleteMapping("/delete-unsecured/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteVehicleUnsecured(@PathVariable Long id) {
         try {
             // Récupérer le véhicule
@@ -225,8 +120,6 @@ public class VehicleController {
             if (vehicle == null) {
                 return new ResponseEntity<>("Véhicule introuvable", HttpStatus.NOT_FOUND);
             }
-
-            // Supprimer le véhicule sans vérification d'authentification
             vehicleService.deleteVehicle(id);
 
             return new ResponseEntity<>("Véhicule supprimé avec succès", HttpStatus.OK);
@@ -242,13 +135,10 @@ public class VehicleController {
             @PathVariable Long id,
             @RequestBody Vehicle vehicleDetails) {
         try {
-            // Récupérer le véhicule existant
             Vehicle existingVehicle = vehicleService.getVehicleById(id);
             if (existingVehicle == null) {
                 return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
             }
-
-            // Mettre à jour le véhicule sans vérification d'authentification
             if (vehicleDetails.getBrand() != null) {
                 existingVehicle.setBrand(vehicleDetails.getBrand());
             }
@@ -273,11 +163,7 @@ public class VehicleController {
             if (vehicleDetails.getStatus() != null) {
                 existingVehicle.setStatus(vehicleDetails.getStatus());
             }
-
-            // Mettre à jour la date de dernière activité
             existingVehicle.updateActivity();
-
-            // Sauvegarder les modifications
             Vehicle updatedVehicle = vehicleRepository.save(existingVehicle);
 
             return new ResponseEntity<>(updatedVehicle, HttpStatus.OK);

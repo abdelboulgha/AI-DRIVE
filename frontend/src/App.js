@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { frFR } from '@mui/material/locale';
-import Dashboard from './pages/Dashboard';
 import AccelerometerData from './pages/AccelerometerData';
 import GPSData from './pages/GPSData';
 import GyroscopeData from './pages/GyroscopeData';
@@ -11,7 +10,6 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import UsersList from './pages/UsersList';
-import UserProfile from './pages/UserProfile';
 import CarsList from './pages/CarsList';
 import CarDetails from './pages/CarDetails';
 import CarData from './pages/CarData';
@@ -21,6 +19,7 @@ import Layout from './components/layout/Layout';
 import PrivateRoute from './components/auth/PrivateRoute';
 import AdminRoute from './components/auth/AdminRoute';
 import UserVehicles from './pages/UserVehicles';
+import Accueil from './pages/Accueil';
 
 // Création du thème
 const theme = createTheme({
@@ -116,6 +115,7 @@ function App() {
       <Router>
         <Routes>
   {/* Routes publiques */}
+  <Route path="/accueil" element={<Accueil />} />
   <Route path="/login" element={<Login />} />
   <Route path="/forgot-password" element={<ForgotPassword />} />
   <Route path="/reset-password/:token" element={<ResetPassword />} />
@@ -125,9 +125,6 @@ function App() {
     {/* Redirection de la page d'accueil vers /cars */}
     <Route index element={<Navigate to="/cars" replace />} />
     
-    {/* Dashboard accessible via son propre chemin */}
-    <Route path="dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-    
     {/* Routes de données capteurs */}
     <Route path="accelerometer" element={<PrivateRoute><AccelerometerData /></PrivateRoute>} />
     <Route path="gps" element={<PrivateRoute><GPSData /></PrivateRoute>} />
@@ -135,9 +132,7 @@ function App() {
     
     {/* Routes de gestion des utilisateurs */}
     <Route path="users" element={<AdminRoute><UsersList /></AdminRoute>} />
-    <Route path="users/:userId" element={<AdminRoute><UserProfile /></AdminRoute>} />
     <Route path="users/:userId/cars" element={<AdminRoute><UserVehicles /></AdminRoute>} />
-    <Route path="profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
     
     {/* Routes de gestion des véhicules */}
     <Route path="cars" element={<PrivateRoute><CarsList /></PrivateRoute>} />
@@ -150,7 +145,7 @@ function App() {
   </Route>
   
   {/* Redirection par défaut */}
-  <Route path="*" element={<Navigate to="/login" replace />} />
+  <Route path="/" element={<Navigate to="/accueil" replace />} />
 </Routes>
       </Router>
     </ThemeProvider>

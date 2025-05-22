@@ -350,7 +350,7 @@ const CarsList = () => {
   
   const handleDeleteUnsecured = async () => {
     try {
-      await axios.delete(`${API_URL}/vehicles/delete-unsecured/${carToDelete.id}`);
+      await axios.delete(`${API_URL}/vehicles/delete/${carToDelete.id}`);
       fetchCars();
       fetchStats();
       setSuccessMessage(`Le véhicule ${carToDelete.brand} ${carToDelete.model} a été supprimé avec succès`);

@@ -49,9 +49,6 @@ import axios from 'axios';
 // API URL
 const API_URL = 'http://localhost:8080/api';
 
-// IMPORTANT: Ajoutez ces lignes dans le <head> de votre index.html:
-// <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-// <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 // Composant pour la carte GPS - approche simplifiée et robuste
 const GPSMapComponent = ({ gpsData }) => {

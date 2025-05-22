@@ -32,20 +32,4 @@ public class StatsController {
         StatsSummaryDTO summary = statsService.getStatsSummaryByUser(user);
         return ResponseEntity.ok(summary);
     }
-
-    @GetMapping("/devices")
-    public ResponseEntity<List<String>> getDeviceList(
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        List<String> devices = statsService.getDeviceIdsByUser(user);
-        return ResponseEntity.ok(devices);
-    }
-
-    @GetMapping("/dashboard")
-    public ResponseEntity<DashboardDataDTO> getDashboardData(
-            @RequestHeader("Authorization") String token) {
-        User user = authService.getUserByToken(token);
-        DashboardDataDTO dashboardData = statsService.getDashboardDataByUser(user);
-        return ResponseEntity.ok(dashboardData);
-    }
 }

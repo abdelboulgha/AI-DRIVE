@@ -72,7 +72,7 @@ public class AuthController {
             throw new RuntimeException("Error retrieving users: " + e.getMessage());
         }
     }
-    @DeleteMapping("/users/delete-unsecured/{id}")
+    @DeleteMapping("/users/delete/{id}")
     @Transactional
     public ResponseEntity<?> deleteUserUnsecured(@PathVariable Long id) {
         try {

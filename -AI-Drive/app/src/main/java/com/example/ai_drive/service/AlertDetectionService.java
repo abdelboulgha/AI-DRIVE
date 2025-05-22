@@ -35,17 +35,14 @@ public class AlertDetectionService extends Service implements SensorEventListene
     private ApiService apiService;
     private SessionManager sessionManager;
 
-    // Réduire les seuils pour faciliter le déclenchement
-    private static final float HARSH_BRAKING_THRESHOLD = -8.0f; // au lieu de -8.0f
-    private static final float EXCESSIVE_ACCELERATION_THRESHOLD = 10.0f; // au lieu de 6.0f
-    private static final float DANGEROUS_TURN_THRESHOLD = 5.0f; // au lieu de 5.0f
-    private static final float EXCESSIVE_SPEED_THRESHOLD = 15.0f; // au lieu de 30.0f
+    private static final float HARSH_BRAKING_THRESHOLD = -8.0f;
+    private static final float EXCESSIVE_ACCELERATION_THRESHOLD = 10.0f;
+    private static final float DANGEROUS_TURN_THRESHOLD = 5.0f;
+    private static final float EXCESSIVE_SPEED_THRESHOLD = 15.0f;
 
-    // Dernières valeurs de localisation
     private Location lastLocation;
     private float currentSpeed;
 
-    // Valeurs du gyroscope
     private float rotationX, rotationY, rotationZ;
 
     @Override
@@ -91,7 +88,6 @@ public class AlertDetectionService extends Service implements SensorEventListene
             Log.d(TAG, "Gyroscope enregistré");
         }
 
-        // Enregistrer le listener pour la localisation
         try {
             locationManager.requestLocationUpdates(
                     LocationManager.GPS_PROVIDER,
@@ -155,7 +151,6 @@ public class AlertDetectionService extends Service implements SensorEventListene
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Non utilisé
     }
 
     @Override
@@ -187,7 +182,6 @@ public class AlertDetectionService extends Service implements SensorEventListene
             return;
         }
 
-        // Créer l'alerte avec le format adapté au backend
         AlertModel alert = new AlertModel();
         alert.setType(type);
         alert.setDescription(description);
@@ -202,16 +196,13 @@ public class AlertDetectionService extends Service implements SensorEventListene
                 android.os.Build.VERSION.RELEASE + "\"}";
         alert.setData(jsonData);
 
-        // Ajouter les données de localisation si disponibles
         if (lastLocation != null) {
-            // Définir l'objet LocationModel
             AlertModel.LocationModel location = new AlertModel.LocationModel(
                     lastLocation.getLatitude(),
                     lastLocation.getLongitude()
             );
             alert.setLocation(location);
 
-            // Définir aussi directement latitude et longitude
             alert.setLatitude(lastLocation.getLatitude());
             alert.setLongitude(lastLocation.getLongitude());
 

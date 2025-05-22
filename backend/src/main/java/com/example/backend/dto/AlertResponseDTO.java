@@ -114,7 +114,6 @@ public class AlertResponseDTO {
         this.data = data;
     }
 
-    // Classes internes pour les données liées
     public static class UserDTO {
         private Long id;
         private String username;
