@@ -120,6 +120,42 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 </div>
 
 
+**partie web**
+<div align="center">
+<table>
+  <tr>
+    <td align="center">
+      <img src="./assets/Gestion_des_alertes.png" alt="Page d'accueil" width="200" height="400"/>
+      <br><strong>  Gestion des alertes</strong>
+    </td>
+    <td align="center">
+      <img src="./assets/Gestion_des_véhicules.png" alt="Création de compte" width="200" height="400"/>
+      <br><strong>Gestion des véhicules</strong>
+    </td>
+    <td align="center">
+      <img src="./assets/Gestion_des_utilisateurs.png" alt="Accéléromètre" width="200" height="400"/>
+      <br><strong>Gestion des utilisateurs</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./assets/Données_des_capteurs_accelerometre.png" alt="GPS" width="200" height="400"/>
+      <br><strong>capteur accéléromètre</strong>
+    </td>
+    <td align="center">
+      <img src="./assets/Données_des_capteurs_gyroscope.png" alt="Gyroscope" width="200" height="400"/>
+      <br><strong>capteurs gyroscope</strong>
+    </td>
+    <td align="center">
+      <!-- Espace pour future capture -->
+      <img src="./assets/Localisation_des_Véhicules.png" alt="À venir" width="200" height="400"/>
+      <br><strong>Localisation des Véhicules</strong>
+    </td>
+  </tr>
+</table>
+</div>
+
+
 
 ## Installation
 
