@@ -125,25 +125,25 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 <table>
   <tr>
     <td align="center">
-      <img src="./assets/Gestion_des_alertes.png" alt="Gestion des alertes" width="400" height="700"/>
+      <img src="./assets/Gestion_des_alertes.png" alt="Gestion des alertes" width="600" height="300"/>
       <br><strong>🚨 Gestion des alertes</strong>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="./assets/Gestion_des_véhicules.png" alt="Gestion des véhicules" width="700" height="300"/>
+      <img src="./assets/Gestion_des_véhicules.png" alt="Gestion des véhicules" width="600" height="300"/>
       <br><strong>🚗 Gestion des véhicules</strong>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="./assets/Gestion_des_utilisateurs.png" alt="Gestion des utilisateurs" width="700" height="300"/>
+      <img src="./assets/Gestion_des_utilisateurs.png" alt="Gestion des utilisateurs" width="600" height="300"/>
       <br><strong>👥 Gestion des utilisateurs</strong>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="./assets/Localisation_des_Véhicules.png" alt="Localisation des véhicules" width="700" height="300"/>
+      <img src="./assets/Localisation_des_Véhicules.png" alt="Localisation des véhicules" width="600" height="300"/>
       <br><strong>🛰️ Localisation des véhicules</strong>
     </td>
   </tr>
