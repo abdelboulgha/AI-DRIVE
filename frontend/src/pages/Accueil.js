@@ -43,6 +43,153 @@ import {
   HeadsetMic
 } from '@mui/icons-material';
 
+// Composant Features Section
+const FeaturesSection = ({ features, showContent }) => {
+  return (
+    <Slide direction="up" in={showContent} timeout={1200}>
+      <Box sx={{ py: 10 }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography variant="h2" sx={{
+              color: 'white',
+              fontWeight: 'bold',
+              mb: 3,
+              textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+            }}>
+              Solutions Premium
+            </Typography>
+            <Typography variant="h6" sx={{
+              color: 'rgba(255,255,255,0.8)',
+              maxWidth: 600,
+              mx: 'auto'
+            }}>
+              Technologies de pointe pour transformer votre activité
+            </Typography>
+          </Box>
+          
+          {/* Conteneur horizontal pour les 3 cartes */}
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '2rem',
+            flexWrap: 'wrap',
+            alignItems: 'stretch'
+          }}>
+            {features.map((feature, index) => (
+              <Card key={index} sx={{ 
+                flex: '1 1 300px',
+                maxWidth: '350px',
+                minHeight: '100%',
+                background: 'linear-gradient(145deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95))',
+                backdropFilter: 'blur(25px)',
+                border: '2px solid rgba(255,255,255,0.3)',
+                borderRadius: 4,
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '4px',
+                  background: `linear-gradient(90deg, ${feature.color}, ${feature.color}66)`
+                },
+                '&:hover': { 
+                  transform: 'translateY(-20px) scale(1.03)',
+                  boxShadow: '0 30px 70px rgba(0,0,0,0.25)',
+                  '& .feature-icon': {
+                    transform: 'scale(1.1) rotate(5deg)'
+                  }
+                }
+              }}>
+                <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <Box sx={{ position: 'relative', mb: 3 }}>
+                    <Badge 
+                      badgeContent={feature.badge} 
+                      color="secondary"
+                      sx={{ 
+                        position: 'absolute', 
+                        top: -10, 
+                        right: -10,
+                        '& .MuiBadge-badge': { 
+                          fontSize: '0.7rem', 
+                          fontWeight: 'bold',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+                        }
+                      }}
+                    >
+                      <Avatar 
+                        className="feature-icon"
+                        sx={{ 
+                          bgcolor: feature.color, 
+                          width: 80, 
+                          height: 80, 
+                          mx: 'auto',
+                          fontSize: '2.5rem',
+                          boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                          transition: 'all 0.3s ease'
+                        }}
+                      >
+                        {feature.icon}
+                      </Avatar>
+                    </Badge>
+                  </Box>
+                  
+                  <Typography variant="h5" sx={{ 
+                    fontWeight: 'bold', 
+                    mb: 2, 
+                    color: feature.color,
+                    textAlign: 'center'
+                  }}>
+                    {feature.title}
+                  </Typography>
+                  
+                  <Typography variant="body1" sx={{ 
+                    color: 'text.secondary', 
+                    mb: 3, 
+                    lineHeight: 1.6,
+                    textAlign: 'center',
+                    flex: 1
+                  }}>
+                    {feature.description}
+                  </Typography>
+
+                  <Divider sx={{ my: 2 }} />
+
+                  <Stack spacing={1} sx={{ mb: 3 }}>
+                    {feature.benefits.map((benefit, idx) => (
+                      <Stack direction="row" alignItems="center" spacing={1} key={idx}>
+                        <CheckCircle sx={{ color: feature.color, fontSize: 16 }} />
+                        <Typography variant="caption" sx={{ fontSize: '0.85rem' }}>
+                          {benefit}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  
+                  <Chip 
+                    label={feature.stats} 
+                    size="medium" 
+                    sx={{ 
+                      bgcolor: feature.color, 
+                      color: 'white',
+                      fontWeight: 'bold',
+                      fontSize: '0.9rem',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                    }} 
+                  />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Box>
+    </Slide>
+  );
+};
+
 const Accueil = () => {
   const navigate = useNavigate();
   const theme = useTheme();
@@ -257,20 +404,6 @@ const Accueil = () => {
                   boxShadow: '0 8px 25px rgba(0,0,0,0.1)'
                 }} 
               />
-              <Chip 
-                icon={<Security />}
-                label="Certifié ISO" 
-                sx={{ 
-                  bgcolor: 'rgba(76,175,80,0.2)', 
-                  color: 'white',
-                  fontWeight: 'bold',
-                  fontSize: '1rem',
-                  py: 2.5,
-                  px: 3,
-                  backdropFilter: 'blur(15px)',
-                  border: '2px solid rgba(76,175,80,0.3)'
-                }} 
-              />
             </Stack>
             
             <Typography variant="h1" sx={{ 
@@ -395,141 +528,8 @@ const Accueil = () => {
           </Box>
         </Zoom>
 
-        {/* Features Section Ultra Premium */}
-        <Slide direction="up" in={showContent} timeout={1200}>
-          <Box sx={{ py: 10 }}>
-            <Container maxWidth="lg">
-              <Box sx={{ textAlign: 'center', mb: 8 }}>
-                <Typography variant="h2" sx={{
-                  color: 'white',
-                  fontWeight: 'bold',
-                  mb: 3,
-                  textShadow: '0 4px 20px rgba(0,0,0,0.3)'
-                }}>
-                  Solutions Premium
-                </Typography>
-                <Typography variant="h6" sx={{
-                  color: 'rgba(255,255,255,0.8)',
-                  maxWidth: 600,
-                  mx: 'auto'
-                }}>
-                  Technologies de pointe pour transformer votre activité
-                </Typography>
-              </Box>
-              
-              <Grid container spacing={5}>
-                {features.map((feature, index) => (
-                  <Grid item xs={12} md={6} lg={3} key={index}>
-                    <Card sx={{ 
-                      height: '100%',
-                      background: 'linear-gradient(145deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95))',
-                      backdropFilter: 'blur(25px)',
-                      border: '2px solid rgba(255,255,255,0.3)',
-                      borderRadius: 4,
-                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '4px',
-                        background: `linear-gradient(90deg, ${feature.color}, ${feature.color}66)`
-                      },
-                      '&:hover': { 
-                        transform: 'translateY(-20px) scale(1.03)',
-                        boxShadow: '0 30px 70px rgba(0,0,0,0.25)',
-                        '& .feature-icon': {
-                          transform: 'scale(1.1) rotate(5deg)'
-                        }
-                      }
-                    }}>
-                      <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                        <Box sx={{ position: 'relative', mb: 3 }}>
-                          <Badge 
-                            badgeContent={feature.badge} 
-                            color="secondary"
-                            sx={{ 
-                              position: 'absolute', 
-                              top: -10, 
-                              right: -10,
-                              '& .MuiBadge-badge': { 
-                                fontSize: '0.7rem', 
-                                fontWeight: 'bold',
-                                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
-                              }
-                            }}
-                          >
-                            <Avatar 
-                              className="feature-icon"
-                              sx={{ 
-                                bgcolor: feature.color, 
-                                width: 80, 
-                                height: 80, 
-                                mx: 'auto',
-                                fontSize: '2.5rem',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-                                transition: 'all 0.3s ease'
-                              }}
-                            >
-                              {feature.icon}
-                            </Avatar>
-                          </Badge>
-                        </Box>
-                        
-                        <Typography variant="h5" sx={{ 
-                          fontWeight: 'bold', 
-                          mb: 2, 
-                          color: feature.color,
-                          textAlign: 'center'
-                        }}>
-                          {feature.title}
-                        </Typography>
-                        
-                        <Typography variant="body1" sx={{ 
-                          color: 'text.secondary', 
-                          mb: 3, 
-                          lineHeight: 1.6,
-                          textAlign: 'center',
-                          flex: 1
-                        }}>
-                          {feature.description}
-                        </Typography>
-
-                        <Divider sx={{ my: 2 }} />
-
-                        <Stack spacing={1} sx={{ mb: 3 }}>
-                          {feature.benefits.map((benefit, idx) => (
-                            <Stack direction="row" alignItems="center" spacing={1} key={idx}>
-                              <CheckCircle sx={{ color: feature.color, fontSize: 16 }} />
-                              <Typography variant="caption" sx={{ fontSize: '0.85rem' }}>
-                                {benefit}
-                              </Typography>
-                            </Stack>
-                          ))}
-                        </Stack>
-                        
-                        <Chip 
-                          label={feature.stats} 
-                          size="medium" 
-                          sx={{ 
-                            bgcolor: feature.color, 
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: '0.9rem',
-                            boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
-                          }} 
-                        />
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            </Container>
-          </Box>
-        </Slide>
+        {/* Utilisation du composant FeaturesSection */}
+        <FeaturesSection features={features} showContent={showContent} />
 
         {/* Benefits Section Premium */}
         <Slide direction="left" in={showContent} timeout={1400}>
