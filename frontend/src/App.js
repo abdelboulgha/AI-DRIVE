@@ -145,7 +145,7 @@ function App() {
   </Route>
   
   {/* Redirection par défaut */}
-  <Route path="/" element={<Navigate to="/accueil" replace />} />
+  <Route path="*" element={<Navigate to="/accueil" replace />} />
 </Routes>
       </Router>
     </ThemeProvider>
