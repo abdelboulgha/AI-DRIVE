@@ -17,11 +17,11 @@
 - [Captures d'écran](#captures-décran)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
-- [Architecture](#️-architecture)
+- [Architecture](#️architecture)
 - [Sécurité](#sécurité)
-- [Roadmap](#️-roadmap)
-- [Contribution](#-contribution)
-- [Équipe](#-équipe)
+- [Roadmap](#️roadmap)
+- [Contribution](#contribution)
+- [Équipe](#équipe)
 
 ## Description
 
@@ -66,20 +66,20 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 ### Frontend Mobile
 ```
-🤖 Android SDK (Java)
-📡 Retrofit 2 - API REST
-🔄 Gson - JSON parsing
-📱 Navigation Component
-💾 SharedPreferences - Stockage local
-📊 MPAndroidChart - Graphiques
+ Android SDK (Java)
+ Retrofit 2 - API REST
+ Gson - JSON parsing
+ Navigation Component
+ SharedPreferences - Stockage local
+ MPAndroidChart - Graphiques
 ```
 
 ### Capteurs
 ```
-📱 Android Sensor Framework
-🧠 Algorithmes de détection personnalisés
-📍 Google Location Services
-⚡ Traitement temps réel
+ Android Sensor Framework
+ Algorithmes de détection personnalisés
+ Google Location Services
+ Traitement temps réel
 ```
 
 ## Captures d'écran
@@ -206,15 +206,15 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 ###  Premier lancement
 
-1. ** Création de compte**
+1. **Création de compte**
    - Email valide + mot de passe sécurisé
    - Validation par email (optionnel)
 
-2. ** Configuration véhicule**
+2. **Configuration véhicule**
    - Sélection dans catalogue ou création personnalisée
    - Calibrage initial des capteurs
 
-3. ** Permissions système**
+3. **Permissions système**
    - Localisation : "Toujours autoriser"
    - Capteurs : Accès automatique
    - Notifications : Recommandé
@@ -235,7 +235,7 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 |  **Gyroscope** | Stabilité | Rotations, inclinaisons |
 |  **Historique** | Statistiques | Trajets, tendances, progression |
 
-## 🏗️ Architecture
+##  Architecture
 
 ![architecture Logo](./assets/architecture.png)
 
@@ -251,62 +251,62 @@ AI-Drive est une application Android intelligente qui utilise les capteurs inté
 
 
 
-## 🗺️ Roadmap
+##  Roadmap
 
 ###  Version 1.1 (Q2 2025)
-- [ ] 🌙 Mode nuit automatique
-- [ ] 🎵 Intégration assistant vocal
-- [ ] 📱 Widget tableau de bord
-- [ ] 🌍 Support multi-langues
+- [ ]  Mode nuit automatique
+- [ ]  Intégration assistant vocal
+- [ ]  Widget tableau de bord
+- [ ]  Support multi-langues
 
 ### Version 2.0 (Q4 2025)
-- [ ] 🧠 IA prédictive avancée
-- [ ] 👥 Partage social des scores
-- [ ] 🏆 Système de gamification
-- [ ] ☁️ Synchronisation cloud
+- [ ]  IA prédictive avancée
+- [ ]  Partage social des scores
+- [ ]  Système de gamification
+- [ ]  Synchronisation cloud
 
 ###  Vision long terme
-- [ ] 🚙 Intégration véhicules connectés
-- [ ] 🏙️ Données de trafic temps réel
-- [ ] 📱 Version iOS
-- [ ] 🌐 API publique pour développeurs
+- [ ]  Intégration véhicules connectés
+- [ ]  Données de trafic temps réel
+- [ ]  Version iOS
+- [ ]  API publique pour développeurs
 
-## 🤝 Contribution
+##  Contribution
 
 Nous accueillons toutes les contributions ! 
 
 ###  Comment contribuer
 
-1. **🍴 Fork** le repository
-2. **🌿 Créez** une branche feature (`git checkout -b feature/AmazingFeature`)
-3. **💾 Committez** vos changements (`git commit -m 'Add: Amazing Feature'`)
-4. **📤 Push** vers la branche (`git push origin feature/AmazingFeature`)
-5. **🔄 Ouvrez** une Pull Request
+1. **Fork** le repository
+2. **Créez** une branche feature (`git checkout -b feature/AmazingFeature`)
+3. **Committez** vos changements (`git commit -m 'Add: Amazing Feature'`)
+4. **Push** vers la branche (`git push origin feature/AmazingFeature`)
+5. **Ouvrez** une Pull Request
 
-### 📋 Guidelines
-- 📝 Code commenté en français
-- 🧪 Tests pour nouvelles fonctionnalités
-- 📚 Documentation mise à jour
-- 🎨 Respect des conventions Android
+###  Guidelines
+-  Code commenté en français
+-  Tests pour nouvelles fonctionnalités
+-  Documentation mise à jour
+-  Respect des conventions Android
 
 
 
-## 👥 Équipe
+## Équipe
 
-### 🏗️ Développeurs principaux
+### Développeurs principaux
 
 <table>
   <tr>
     <td align="center">
       <img src="https://github.com/abdelboulgha.png" width="100px;" alt=""/><br>
       <sub><b>Abdelillah Boulgha</b></sub><br>
-      <sub>🚗 Lead Developer</sub><br>
+      <sub> Lead Developer</sub><br>
       <a href="mailto:boulghaabdelillah@gmail.com">📧 Contact</a>
     </td>
     <td align="center">
       <img src="https://github.com/KAOUTARKIKA.png" width="100px;" alt=""/><br>
       <sub><b>Kaoutar Boubkari</b></sub><br>
-      <sub>📱 Lead Developer</sub><br>
+      <sub> Lead Developer</sub><br>
       <a href="mailto:boubkarikaoutar1@gmail.com">📧 Contact</a>
     </td>
   </tr>
